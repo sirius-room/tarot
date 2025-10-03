@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タロットと生命の樹：初心者向けガイド</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            font-size: 24px;
+        }
+        
+        h2 {
+            color: #34495e;
+            margin-top: 25px;
+            font-size: 20px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        
+        h3 {
+            color: #555;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .box {
+            background-color: #ecf0f1;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .loop-diagram {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .level-box {
+            background-color: #e8f4f8;
+            border: 1px solid #3498db;
+            padding: 12px;
+            margin: 10px 0;
+        }
+        
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .highlight {
+            background-color: #fff9c4;
+            padding: 2px 5px;
+            font-weight: bold;
+        }
+        
+        .emoji {
+            font-size: 1.2em;
+        }
+        
+        .summary-box {
+            background-color: #e8f5e9;
+            border: 2px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+            }
+            
+            .no-break {
+                page-break-inside: avoid;
+            }
+        }
+        
+        .btn-print {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        
+        .btn-print:hover {
+            background-color: #2980b9;
+        }
+        
+        @media print {
+            .btn-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="btn-print" onclick="window.print()">📄 PDFとして保存</button>
+
+    <h1>タロットと生命の樹：初心者向けガイド</h1>
+
+    <h2>まず知っておきたいこと</h2>
+    <p>タロット占いには、実は<span class="highlight">2つの使い方</span>があります。</p>
+
+    <div class="box">
+        <p><span class="emoji">📖</span> <strong>表の使い方</strong>（みんなが知っている方法）<br>
+        → カードの意味を暗記して、未来を予測する</p>
+        
+        <p><span class="emoji">🔮</span> <strong>裏の使い方</strong>（隠された方法）<br>
+        → 「生命の樹」という設計図を使って、自分自身を深く理解する</p>
+    </div>
+
+    <p>この文章は、ほとんど知られていない<strong>「裏の使い方」</strong>について説明しています。</p>
+
+    <h2>タロットの2つの使い方を比較</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>項目</th>
+                <th>表の使い方</th>
+                <th>裏の使い方</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>やり方</strong></td>
+                <td>カードの意味を丸暗記</td>
+                <td>カード同士のつながりを理解</td>
+            </tr>
+            <tr>
+                <td><strong>何のため？</strong></td>
+                <td>未来を当てる<br>（恋愛運、仕事運など）</td>
+                <td>自分の心や人生を深く理解する</td>
+            </tr>
+            <tr>
+                <td><strong>必要なもの</strong></td>
+                <td>暗記力、直感、経験</td>
+                <td>「生命の樹」という地図の知識</td>
+            </tr>
+            <tr>
+                <td><strong>難しいところ</strong></td>
+                <td>なぜその意味なのか分からない<br>矛盾を感じることも</td>
+                <td>学ぶのに時間がかかる<br>自分と向き合う必要がある</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>「生命の樹」って何？</h2>
+    <p><strong>簡単に言うと：</strong> 人間の心や意識を図で表したもの</p>
+
+    <h3>構造</h3>
+    <div class="box">
+        <p style="text-align: center; font-size: 18px; font-weight: bold;">
+            10個の丸（○）+ 22本の線（─）= 生命の樹
+        </p>
+    </div>
+
+    <ul>
+        <li><strong>10個の丸</strong> → 小アルカナのカード（数字の1〜10に対応）</li>
+        <li><strong>22本の線</strong> → 大アルカナのカード（「魔術師」「女教皇」など）</li>
+    </ul>
+
+    <h3>イメージ</h3>
+    <p>丸は「今いる場所」、線は「別の場所への道」と考えてください。</p>
+
+    <div class="box">
+        <p><strong>例えば：</strong></p>
+        <ul>
+            <li>丸＝「怒っている状態」</li>
+            <li>線＝「怒りから冷静さへ移る方法」</li>
+        </ul>
+    </div>
+
+    <h2>生命の樹が示す4つの世界</h2>
+    <p>生命の樹は、人間の経験を<span class="highlight">4つの階層</span>に分けています。</p>
+
+    <div class="level-box">
+        <h3><span class="emoji">🌌</span> レベル1：神の世界（丸1・2・3）</h3>
+        <ul>
+            <li>人間には理解しづらい、大きな大きなエネルギーの世界</li>
+            <li>人生の「設定」が生まれる場所</li>
+        </ul>
+    </div>
+
+    <div class="level-box">
+        <h3><span class="emoji">✨</span> レベル2：本当の自分の世界（丸4・5・6）</h3>
+        <ul>
+            <li>他人の意見に流されない、本当の自分がいる場所</li>
+            <li>「私は本当はどうしたい？」を考える世界</li>
+        </ul>
+    </div>
+
+    <div class="level-box">
+        <h3><span class="emoji">💭</span> レベル3：感情と思考の世界（丸7・8・9）</h3>
+        <ul>
+            <li>日常的な心の動き
+                <ul>
+                    <li><strong>丸7</strong>：感情や欲求</li>
+                    <li><strong>丸8</strong>：理性や思考</li>
+                    <li><strong>丸9</strong>：無意識の思い込み、クセ</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="level-box">
+        <h3><span class="emoji">🌍</span> レベル4：現実の世界（丸10）</h3>
+        <ul>
+            <li>体を持って生きている、この現実世界</li>
+            <li>多くの人は、丸9の「思い込み」のフィルター越しにこの世界を見ている</li>
+        </ul>
+    </div>
+
+    <h2>重要ポイント：多くの人が陥るループ</h2>
+    <div class="loop-diagram">
+        <p>現実で問題が起きる（丸10）</p>
+        <p>↓</p>
+        <p>でも無意識の思い込みが邪魔（丸9）</p>
+        <p>↓</p>
+        <p>また同じような問題が起きる（丸10）</p>
+        <p>↓</p>
+        <p>繰り返し...</p>
+    </div>
+
+    <p style="text-align: center; font-weight: bold; font-size: 16px;">
+        生命の樹を使ったタロットは、このループから抜け出す方法を教えてくれます。
+    </p>
+
+    <h2>歴史の豆知識</h2>
+    <h3>タロットはもともと占いの道具ではなかった！</h3>
+
+    <ul>
+        <li><strong>作った人</strong>：アーサー・エドワード・ウェイト（19世紀）</li>
+        <li><strong>所属していた団体</strong>：「黄金の夜明け団」という秘密結社</li>
+        <li><strong>本来の目的</strong>：自分の内面を深く知り、成長するためのツール</li>
+        <li><strong>秘密</strong>：生命の樹との関係は、試験に合格した一部の人だけに教えられた</li>
+    </ul>
+
+    <p>→ だから今でも、多くの人がこの「裏の使い方」を知らないのです。</p>
+
+    <h2>実際のリーディングではどう使う？</h2>
+
+    <h3>従来の方法</h3>
+    <ol>
+        <li>たくさんカードを並べる</li>
+        <li>それぞれの位置の意味を考える</li>
+        <li>カードの意味を思い出す</li>
+        <li>組み合わせて解釈する</li>
+    </ol>
+
+    <h3>生命の樹を使う方法</h3>
+    <ol>
+        <li><strong>1〜2枚のカードだけでOK</strong></li>
+        <li>そのカードがどの「丸」に位置するか確認</li>
+        <li>周りの丸や線との関係を読み解く</li>
+        <li>論理的で深い物語が見えてくる</li>
+    </ol>
+
+    <div class="box">
+        <p><strong>例：</strong></p>
+        <p>「8のカード」が出た場合</p>
+        <ul>
+            <li>単に「理性」と覚えるのではなく...</li>
+            <li>「8番の丸（思考の世界）がテーマ」</li>
+            <li>「そこから『吊るされた男』や『悪魔』の道を通って、内面を探る必要がある」</li>
+            <li>このような多面的な理解ができる</li>
+        </ul>
+    </div>
+
+    <h2>この使い方の最大のメリット</h2>
+
+    <div class="box">
+        <p style="text-align: center;">
+            <span style="color: #e74c3c; font-size: 20px;">❌</span> 未来を当てることが目的ではない
+        </p>
+        <p style="text-align: center; margin-top: 10px;">
+            <span style="color: #27ae60; font-size: 20px;">⭕</span> 自分自身を理解することが目的
+        </p>
+    </div>
+
+    <ul>
+        <li>問題の原因を他人のせいにしない</li>
+        <li>自分の心の制限や思い込みに気づく</li>
+        <li>それを乗り越える方法が見えてくる</li>
+        <li>自分で人生を創造する力を取り戻す</li>
+    </ul>
+
+    <h2>まとめ</h2>
+
+    <div class="summary-box">
+        <p><strong>タロットの「裏マニュアル」である生命の樹を学ぶことで：</strong></p>
+        <ul>
+            <li>✅ カードを丸暗記しなくてよくなる</li>
+            <li>✅ すべてのカードがつながった1つのシステムとして理解できる</li>
+            <li>✅ 論理的で深いリーディングができる</li>
+            <li>✅ 自分自身の成長のツールとして使える</li>
+            <li>✅ 占い師自身も変わっていく</li>
+        </ul>
+    </div>
+
+    <p style="text-align: center; font-weight: bold; font-size: 18px; margin-top: 30px;">
+        これは単なる占いではなく、自分の心の地図を読み解く旅です。
+    </p>
+
+    <p style="margin-top: 20px;">
+        時には自分の「影」の部分と向き合う必要もありますが、それを通じて本当の自分に近づき、望む人生を自分で創っていく力が身についていきます。
+    </p>
+
+    <script>
+        // Print button functionality
+        document.querySelector('.btn-print').addEventListener('click', function() {
+            window.print();
+        });
+    </script>
+</body>
+</html>
