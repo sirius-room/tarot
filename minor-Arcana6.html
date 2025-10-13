@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>魔法陣「生命の樹」小アルカナ６の特典解説</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #4a5568;
+            font-size: 2em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #6b46c1;
+            padding-bottom: 15px;
+        }
+        
+        h2 {
+            color: #553c9a;
+            font-size: 1.5em;
+            margin: 40px 0 20px;
+            padding-left: 15px;
+            border-left: 5px solid #9f7aea;
+        }
+        
+        h3 {
+            color: #5a67d8;
+            font-size: 1.3em;
+            margin: 30px 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+        }
+        
+        .card-section {
+            background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 15px;
+            border: 2px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(107, 70, 193, 0.15);
+        }
+        
+        .highlight {
+            background: #fef5e7;
+            padding: 15px;
+            border-left: 4px solid #f39c12;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:hover {
+            background: #f7fafc;
+        }
+        
+        .balance-diagram {
+            background: #edf2f7;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            text-align: center;
+            font-family: monospace;
+            font-size: 1.1em;
+            line-height: 2;
+        }
+        
+        ul {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            padding-left: 10px;
+        }
+        
+        .mystery-text {
+            color: #805ad5;
+            font-style: italic;
+            margin: 15px 0;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .cta-section h3 {
+            color: white;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .cta-box {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .cta-box h4 {
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #553c9a;
+            padding: 15px 30px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: #ffd700;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            color: #718096;
+            font-style: italic;
+        }
+        
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #9f7aea, transparent);
+            margin: 30px 0;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            h2 {
+                font-size: 1.3em;
+            }
+            
+            .btn {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>魔法陣「生命の樹」小アルカナ６の特典解説</h1>
+        
+        <h2>ティファレト（真ん中の球）にある「６」の秘密</h2>
+        <p class="subtitle">生命の樹の中心にあるティファレト。ここに位置する小アルカナの「６」には、実は深い意味が隠されています...</p>
+        
+        <div class="divider"></div>
+        
+        <div class="card-section">
+            <h3>🔥 ワンドの６：ちょうどいい「熱さ」</h3>
+            
+            <h4><strong>火のエネルギーが絶妙なバランス</strong></h4>
+            <ul>
+                <li>燃えすぎず、弱すぎず</li>
+                <li>最初は抽象的だった「やりたい！」という気持ちが、周りと調和しながら成果になる瞬間</li>
+                <li>パメラさんの絵に描かれた「凱旋勝利」はこれを表現</li>
+            </ul>
+            
+            <div class="highlight">
+                <strong>でも、この後が面白い...</strong><br>
+                ７（ネツァク）に降りると、せっかく手に入れた成果が欲を呼び、視野が狭くなっていく。６の「広い視野」は一瞬だけ？
+            </div>
+        </div>
+        
+        <div class="card-section">
+            <h3>💧 カップの６：子供時代の魔法</h3>
+            
+            <h4><strong>パメラさんが「子供」を描いた理由</strong></h4>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>あの頃の自分</th>
+                        <th>今の自分</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>素直に喜怒哀楽を感じる</td>
+                        <td>感情を抑えがち？</td>
+                    </tr>
+                    <tr>
+                        <td>ケンカしても翌日謝る</td>
+                        <td>引きずる...</td>
+                    </tr>
+                    <tr>
+                        <td>全力で遊ぶ</td>
+                        <td>周りの目を気にする</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="highlight">
+                <strong>ポイント：</strong><br>
+                穏やかなだけじゃない。喜怒哀楽も衝突もある。でもそれを<strong>素直に感じて統合する</strong>のが、カップの６。
+            </div>
+            
+            <p class="mystery-text">無理せず周りと調和している状態って、実は...（続きが気になりますよね？）</p>
+        </div>
+        
+        <div class="card-section">
+            <h3>⚔️ ソードの６：船頭さんの秘密</h3>
+            
+            <h4><strong>多くの占い師が見落としていること</strong></h4>
+            
+            <p>占いでは「困難から脱出」と解釈されがち。でも、ウェイトが著書で触れたのは<strong>船頭さん</strong>。</p>
+            
+            <ul>
+                <li>船の前方：困難に晒されている親子（マルクトの現実）</li>
+                <li>船の後方：冷静に操縦する船頭（俯瞰した視点）</li>
+            </ul>
+            
+            <div class="highlight">
+                <strong>もしかして...</strong><br>
+                これって、自分の困難を「他人事のように」俯瞰して観察する技術を表してる？
+            </div>
+            
+            <p class="mystery-text">思考の使い方が変わると、見える景色が...（この先は講座で！）</p>
+        </div>
+        
+        <div class="card-section">
+            <h3>💰 ペンタクルの６：与える者、受け取る者</h3>
+            
+            <h4><strong>このカードに隠された「序列」</strong></h4>
+            
+            <div class="balance-diagram">
+与える者 ⇄ 施される者<br>
+   ↓<br>
+バランスが取れている状態
+            </div>
+            
+            <h4><strong>崩れるとどうなる？</strong></h4>
+            <ul>
+                <li>与えすぎ → 支配・コントロールへ</li>
+                <li>受け取りすぎ → 傲慢さ、当たり前化</li>
+            </ul>
+            
+            <div class="highlight">
+                <strong>自分に問いかけてみて：</strong>
+                <ul>
+                    <li>与えてばかりいない？</li>
+                    <li>または、してもらうのが当たり前になってない？</li>
+                </ul>
+            </div>
+            
+            <p class="mystery-text">実は、このバランスこそが...（ここから先が本番です）</p>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <h2>💡 ６のカードに共通すること</h2>
+        <p>中心（ティファレト）にある「６」は、<strong>一瞬の調和の瞬間</strong>を表しています。</p>
+        <p>でも、この後７（ネツァク）、８（ホド）と降りていくと...？<br>
+        生命の樹の全体像を知ると、タロットの見え方が180度変わります。</p>
+        
+        <div class="cta-section">
+            <h3>🌟 もっと深く知りたい方へ</h3>
+            
+            <div class="cta-box">
+                <h4>「生命の樹って何？」という方はまずこちら👇</h4>
+                <p>暗記に頼らず、1枚のカードから10倍の情報を読み解く方法をお伝えします。</p>
+                <a href="https://www.street-academy.com/myclass/200538" class="btn" target="_blank">タロット占い 脱・暗記！1枚から10倍の情報を読み解くコツ</a>
+            </div>
+            
+            <div class="cta-box">
+                <h4>「もっと本格的に学びたい！」という方はこちら👇</h4>
+                <p>生命の樹という「タロットの設計図」を使って、占いの精度を上げる方法を学べます。</p>
+                <a href="https://www.street-academy.com/myclass/201879" class="btn" target="_blank">【裏マニュアル教えます！】タロット占いの設計図「生命の木」入門編</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <strong>Sirius'room mayumi</strong><br>
+            タロットに隠された「仕組み」を知ると、占いがもっと楽しくなります
+        </div>
+    </div>
+</body>
+</html>
