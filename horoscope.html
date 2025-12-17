@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タロットと星の調和：生命の樹への旅</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            background-color: #fdf2f8; /* 淡いピンク系の背景 */
+            color: #475569; /* 濃いグレーの文字 */
+            overflow-x: hidden;
+        }
+        .pastel-bg {
+            background-image: 
+                radial-gradient(#fbcfe8 20%, transparent 20%),
+                radial-gradient(#bae6fd 20%, transparent 20%);
+            background-size: 40px 40px, 40px 40px;
+            background-position: 0 0, 20px 20px;
+            opacity: 0.3;
+        }
+        .fade-in {
+            animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .soft-glow {
+            box-shadow: 0 0 15px rgba(251, 207, 232, 0.6);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        // --- データセット ---
+        
+        const STORY_PHASES = [
+            {
+                id: 1,
+                title: "第1章：小アルカナと天体の響き",
+                desc: "数札（小アルカナ）は、生命の樹のセフィラに対応しています。それぞれの数字が持つエネルギーと、それを象徴する天体の関係を学びましょう。",
+                bg: "from-pink-100 to-rose-200"
+            },
+            {
+                id: 2,
+                title: "第2章：大アルカナと星座の物語",
+                desc: "大アルカナは魂の大きな変容のプロセスです。カードに秘められた星座（サイン）のエネルギーを読み解き、より深い理解へと進みます。",
+                bg: "from-sky-100 to-blue-200"
+            }
+        ];
+
+        const QUIZ_DATA = [
+            // --- 第1章：小アルカナと天体 (Q1-10) ---
+            {
+                q: "【小アルカナ】タロットの「エース（1）」は、生命の樹の「ケテル（王冠）」に対応します。このセフィラに対応する天体（現代的な解釈）はどれですか？",
+                options: ["海王星", "冥王星", "太陽", "天王星"],
+                a: 0,
+                exp: "正解は「海王星」です。\nケテルは無限の宇宙のエネルギーや境界の溶解を表し、現代の解釈では海王星（または第一導因）に対応付けられます。",
+                icon: "👑"
+            },
+            {
+                q: "【小アルカナ】「2のカード」は「コクマー（知恵）」に対応します。占星術において「革新や革命、独創」を象徴する、このセフィラの対応天体は？",
+                options: ["天王星", "土星", "木星", "火星"],
+                a: 0,
+                exp: "正解は「天王星」です。\nコクマーは創造的破壊や純粋な創造力を表し、占星術において「革新や革命」を象徴する天王星に対応します。",
+                icon: "⚡"
+            },
+            {
+                q: "【小アルカナ】「3のカード」は「ビナー（理解）」に対応します。形を与え、制限や構造を作る働きを持つ、対応天体は？",
+                options: ["土星", "金星", "月", "水星"],
+                a: 0,
+                exp: "正解は「土星」です。\nビナーは母なる海としてエネルギーに器（形）を与えます。制限や構造化を司る土星と対応します。",
+                icon: "🪐"
+            },
+            {
+                q: "【小アルカナ】「4のカード」は「ケセド（慈悲）」に対応します。拡大・発展・寛容さを象徴する、このセフィラの対応天体は？",
+                options: ["木星", "太陽", "金星", "海王星"],
+                a: 0,
+                exp: "正解は「木星」です。\nケセドは肯定し、広げ、育むエネルギーを持ちます。占星術で最大の吉星とされる木星に対応します。",
+                icon: "♃"
+            },
+            {
+                q: "【小アルカナ】「5のカード」は「ゲブラー（峻厳）」に対応します。不要なものを切り捨て、行動力を与える、対応天体は？",
+                options: ["火星", "土星", "天王星", "冥王星"],
+                a: 0,
+                exp: "正解は「火星」です。\nゲブラーは正義、戦い、破壊と改革を司ります。行動力と攻撃性を象徴する火星に対応します。",
+                icon: "♂️"
+            },
+            {
+                q: "【小アルカナ】「6のカード」は「ティファレト（美）」に対応します。生命の樹の中心に位置し、全体を統合する対応天体は？",
+                options: ["太陽", "月", "地球", "木星"],
+                a: 0,
+                exp: "正解は「太陽」です。\nティファレトは生命の樹の心臓部であり、ハイヤーセルフや本来の自分を象徴します。太陽系の中心である太陽に対応します。",
+                icon: "☀️"
+            },
+            {
+                // Q7: 解説を修正（感情や欲を司る）
+                q: "【小アルカナ】「7のカード」は「ネツァク（勝利）」に対応します。感情、愛、芸術、快楽を司る、対応天体は？",
+                options: ["金星", "水星", "月", "海王星"],
+                a: 0,
+                exp: "正解は「金星」です。\nネツァクは「感情や欲」を司るセフィラです。情緒的な側面や美意識も表し、愛と美の女神ヴィーナス（金星）に対応します。",
+                icon: "♀️"
+            },
+            {
+                q: "【小アルカナ】「8のカード」は「ホド（栄光）」に対応します。思考、情報処理、コミュニケーションを司る、対応天体は？",
+                options: ["水星", "天王星", "木星", "火星"],
+                a: 0,
+                exp: "正解は「水星」です。\nホドは知性や論理、分析を司ります。情報の伝達者であるヘルメス（水星）に対応します。",
+                icon: "☿️"
+            },
+            {
+                q: "【小アルカナ】「9のカード」は「イエソド（基礎）」に対応します。無意識、夢、幻影、サイキックな領域を司る、対応天体は？",
+                options: ["月", "海王星", "冥王星", "土星"],
+                a: 0,
+                exp: "正解は「月」です。\nイエソドは物質界の直上にあり、潜在意識の領域です。夜に見え隠れし、無意識を象徴する月に対応します。",
+                icon: "🌙"
+            },
+            {
+                q: "【小アルカナ】「10のカード」は「マルクト（王国）」に対応します。すべてのエネルギーが具体化・結晶化した場所として対応する天体は？",
+                options: ["地球", "土星", "太陽", "冥王星"],
+                a: 0,
+                exp: "正解は「地球」です。\nマルクトは私たちが住む現実世界そのものです。4大元素が統合され形となった場所、つまり地球に対応します。",
+                icon: "🌍"
+            },
+
+            // --- 第2章：大アルカナと星座 (Q11-15) ---
+            {
+                q: "【大アルカナ】カード番号4「皇帝」に対応する、活動的でリーダーシップを表すサイン（星座）は？",
+                options: ["牡羊座", "獅子座", "山羊座", "天秤座"],
+                a: 0,
+                exp: "正解は「牡羊座」です。\n皇帝は父性、支配、秩序への意志を表します。12星座のトップバッターであり、火星を支配星に持つ牡羊座に対応します。",
+                icon: "♈"
+            },
+            {
+                q: "【大アルカナ】カード番号9「隠者」に対応する、分析力と奉仕、内省を表すサインは？",
+                options: ["乙女座", "射手座", "水瓶座", "魚座"],
+                a: 0,
+                exp: "正解は「乙女座」です。\n隠者は内なる光を探求し、細部を見極めるカードです。水星を守護星に持ち、分析と整理整頓を司る乙女座に対応します。",
+                icon: "♍"
+            },
+            {
+                q: "【大アルカナ】カード番号13「死神」に対応する、変容と再生、深い絆を表すサインは？",
+                options: ["蠍座", "山羊座", "水瓶座", "魚座"],
+                a: 0,
+                exp: "正解は「蠍座」です。\n死神は終わりと始まり、根本的な変容を表します。死と再生を司る冥王星を守護星に持つ蠍座に対応します。",
+                icon: "♏"
+            },
+            {
+                // Q14: 問題文と解説を修正
+                q: "【大アルカナ】カード番号17「星」に対応する、「個性的・独創的で、物事の本質を見抜く」性質を表すサインは？",
+                options: ["水瓶座", "魚座", "双子座", "乙女座"],
+                a: 0,
+                exp: "正解は「水瓶座」です。\n星のカードは「潜在意識や無意識の制限や固定概念が外れた時に起こる希望やインスピレーション」を表します。個性的・独創的で物事の本質を見抜く水瓶座に対応します。",
+                icon: "♒"
+            },
+            {
+                q: "【大アルカナ】カード番号18「月」に対応する、無意識、幻影、境界の溶解を表すサインは？",
+                options: ["魚座", "蟹座", "蠍座", "乙女座"],
+                a: 0,
+                exp: "正解は「魚座」です。\n月のカードは不安や幻影、無意識の世界への没入を表します。海王星を守護星に持ち、形のない世界を漂う魚座に対応します。",
+                icon: "♓"
+            }
+        ];
+
+        // --- コンポーネント ---
+
+        const App = () => {
+            const [gameState, setGameState] = useState('intro');
+            const [currentQIndex, setCurrentQIndex] = useState(0);
+            const [score, setScore] = useState(0);
+            const [showExp, setShowExp] = useState(false);
+            const [lastAnswerCorrect, setLastAnswerCorrect] = useState(false);
+            const [chapter, setChapter] = useState(0);
+            const [showChapterCover, setShowChapterCover] = useState(false);
+
+            const startQuiz = () => {
+                setGameState('game');
+                setChapter(0);
+                setShowChapterCover(true);
+            };
+
+            const handleAnswer = (choiceIndex) => {
+                const isCorrect = choiceIndex === QUIZ_DATA[currentQIndex].a;
+                if (isCorrect) setScore(score + 1);
+                setLastAnswerCorrect(isCorrect);
+                setShowExp(true);
+            };
+
+            const nextQuestion = () => {
+                setShowExp(false);
+                const nextIdx = currentQIndex + 1;
+                
+                // 章の切り替え (Q11の手前)
+                if (nextIdx === 10) { 
+                    setChapter(1);
+                    setShowChapterCover(true);
+                }
+
+                if (nextIdx < QUIZ_DATA.length) {
+                    setCurrentQIndex(nextIdx);
+                } else {
+                    setGameState('result');
+                }
+            };
+
+            const closeChapterCover = () => {
+                setShowChapterCover(false);
+            };
+
+            const progress = ((currentQIndex) / QUIZ_DATA.length) * 100;
+
+            return (
+                <div className="min-h-screen flex flex-col items-center justify-center p-4 relative text-slate-700">
+                    
+                    {/* 背景装飾：パステルカラーの背景 */}
+                    <div className="fixed inset-0 pointer-events-none z-0 bg-gradient-to-br from-pink-50 via-white to-sky-50 pastel-bg"></div>
+
+                    {/* ふわふわしたオーブ */}
+                    <div className="fixed inset-0 pointer-events-none z-0 flex justify-center items-center overflow-hidden">
+                        <div className="absolute top-10 left-10 w-64 h-64 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+                        <div className="absolute bottom-10 right-10 w-64 h-64 bg-sky-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse delay-1000"></div>
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse delay-2000"></div>
+                    </div>
+
+                    <div className="z-10 w-full max-w-2xl">
+                        {gameState === 'intro' && (
+                            <IntroScreen onStart={startQuiz} />
+                        )}
+
+                        {gameState === 'game' && (
+                            showChapterCover ? (
+                                <ChapterCover phase={STORY_PHASES[chapter]} onNext={closeChapterCover} />
+                            ) : (
+                                <QuizCard 
+                                    data={QUIZ_DATA[currentQIndex]} 
+                                    onAnswer={handleAnswer}
+                                    showExp={showExp}
+                                    isCorrect={lastAnswerCorrect}
+                                    onNext={nextQuestion}
+                                    progress={progress}
+                                    qNum={currentQIndex + 1}
+                                />
+                            )
+                        )}
+
+                        {gameState === 'result' && (
+                            <ResultScreen score={score} total={QUIZ_DATA.length} onRetry={() => window.location.reload()} />
+                        )}
+                    </div>
+                </div>
+            );
+        };
+
+        const IntroScreen = ({ onStart }) => (
+            <div className="glass-panel p-10 rounded-3xl shadow-xl text-center fade-in">
+                <div className="text-6xl mb-4">🔮</div>
+                <h1 className="text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
+                    タロットと星の調和<br/>
+                    <span className="text-xl md:text-2xl text-slate-500 font-normal mt-2 block">生命の樹への旅</span>
+                </h1>
+                <p className="text-lg mb-8 leading-relaxed text-slate-600">
+                    タロットカードの一枚一枚には、<br/>
+                    宇宙の星々のエネルギーが宿っています。<br/><br/>
+                    占星術の知識を鍵にして、<br/>
+                    生命の樹の神秘を解き明かしましょう。
+                </p>
+                <div className="space-y-4 mb-8 text-left bg-white/50 p-6 rounded-2xl border border-white">
+                    <p>🌙 <b>第1章:</b> 小アルカナと天体（数札の秘密）</p>
+                    <p>✨ <b>第2章:</b> 大アルカナと星座（魂の変容）</p>
+                </div>
+                <button 
+                    onClick={onStart}
+                    className="bg-gradient-to-r from-pink-400 to-purple-400 hover:from-pink-500 hover:to-purple-500 text-white font-bold py-4 px-12 rounded-full text-xl shadow-lg transform transition hover:scale-105 active:scale-95"
+                >
+                    扉を開く
+                </button>
+            </div>
+        );
+
+        const ChapterCover = ({ phase, onNext }) => (
+            <div className={`fixed inset-0 z-50 flex flex-col items-center justify-center p-8 bg-gradient-to-b ${phase.bg} text-slate-700 fade-in`}>
+                <div className="text-8xl mb-6 opacity-80">📖</div>
+                <h2 className="text-3xl font-bold mb-6 border-b-2 border-white/50 pb-4 text-center">{phase.title}</h2>
+                <p className="text-xl mb-12 max-w-xl text-center leading-loose font-medium text-slate-700/90">{phase.desc}</p>
+                <button 
+                    onClick={onNext}
+                    className="bg-white/40 hover:bg-white/60 border border-white text-slate-700 font-bold py-3 px-10 rounded-full backdrop-blur-md transition shadow-lg"
+                >
+                    物語を始める
+                </button>
+            </div>
+        );
+
+        const QuizCard = ({ data, onAnswer, showExp, isCorrect, onNext, progress, qNum }) => (
+            <div className="w-full">
+                {/* プログレスバー */}
+                <div className="w-full bg-white/50 h-3 rounded-full mb-6 border border-white">
+                    <div className="bg-gradient-to-r from-pink-300 to-purple-300 h-3 rounded-full transition-all duration-500 soft-glow" style={{ width: `${progress}%` }}></div>
+                </div>
+
+                <div className="glass-panel p-6 md:p-8 rounded-3xl shadow-xl relative overflow-hidden fade-in min-h-[450px] flex flex-col justify-between">
+                    
+                    {!showExp && (
+                        <>
+                            <div>
+                                <div className="text-purple-400 text-sm mb-2 font-bold tracking-widest flex justify-between">
+                                    <span>QUESTION {qNum} / {15}</span>
+                                    <span>タロット × 占星術</span>
+                                </div>
+                                <h3 className="text-xl md:text-2xl font-bold mb-8 leading-relaxed text-slate-700">{data.q}</h3>
+                            </div>
+                            <div className="grid gap-3">
+                                {data.options.map((opt, i) => (
+                                    <button 
+                                        key={i}
+                                        onClick={() => onAnswer(i)}
+                                        className="w-full text-left p-4 rounded-2xl bg-white/60 hover:bg-purple-100/60 border border-white/80 hover:border-purple-300 transition-all active:scale-98 flex items-center group shadow-sm hover:shadow-md"
+                                    >
+                                        <span className="bg-purple-100 w-8 h-8 rounded-full flex items-center justify-center mr-4 text-sm font-bold shrink-0 text-purple-600 group-hover:bg-purple-500 group-hover:text-white transition-colors">{i + 1}</span>
+                                        <span className="text-lg text-slate-600 group-hover:text-purple-700">{opt}</span>
+                                    </button>
+                                ))}
+                            </div>
+                        </>
+                    )}
+
+                    {showExp && (
+                        <div className="fade-in h-full flex flex-col">
+                            <div className="flex items-center mb-6 border-b border-purple-100 pb-4">
+                                <div className={`text-5xl mr-4 ${isCorrect ? 'animate-bounce' : 'animate-pulse'}`}>
+                                    {isCorrect ? '🌸' : '💧'}
+                                </div>
+                                <div>
+                                    <div className={`text-2xl font-bold ${isCorrect ? 'text-pink-500' : 'text-blue-400'}`}>
+                                        {isCorrect ? '正解です！' : '惜しい！'}
+                                    </div>
+                                    <div className="text-sm text-slate-400">
+                                        {isCorrect ? '星々の声が聞こえているようです' : '解説を読んで理解を深めましょう'}
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div className="bg-white/40 p-6 rounded-2xl border border-white mb-6 flex-grow overflow-y-auto">
+                                <div className="text-6xl mb-4 text-center">{data.icon}</div>
+                                <p className="text-lg leading-loose whitespace-pre-wrap text-slate-700">{data.exp}</p>
+                            </div>
+
+                            <button 
+                                onClick={onNext}
+                                className="w-full bg-gradient-to-r from-sky-400 to-blue-400 hover:from-sky-500 hover:to-blue-500 text-white font-bold py-4 rounded-xl shadow-lg transition transform active:scale-95"
+                            >
+                                次へ進む
+                            </button>
+                        </div>
+                    )}
+                </div>
+            </div>
+        );
+
+        const ResultScreen = ({ score, total, onRetry }) => {
+            let title = "";
+            let msg = "";
+            let badgeColor = "";
+
+            if (score === total) {
+                title = "🌈 星とカードの調和者";
+                msg = "素晴らしい！あなたはタロットと占星術の深い繋がりを完全に理解しています。あなたのリーディングは、より立体的で深いものになるでしょう。";
+                badgeColor = "text-purple-500";
+            } else if (score >= total * 0.8) {
+                title = "✨ 叡智の探求者";
+                msg = "お見事です！カードの背後にある天体のエネルギーをしっかり掴んでいます。実践でもぜひ活かしてください。";
+                badgeColor = "text-pink-500";
+            } else if (score >= total * 0.5) {
+                title = "🌱 学びの芽生え";
+                msg = "半分以上正解しました！基本は理解できています。対応表を見返しながら、さらに知識を深めていきましょう。";
+                badgeColor = "text-sky-500";
+            } else {
+                title = "📖 始まりの旅人";
+                msg = "新しい知識への扉が開かれました。解説を読み返すことで、きっと多くの発見があるはずです。焦らず進みましょう。";
+                badgeColor = "text-slate-500";
+            }
+
+            return (
+                <div className="glass-panel p-10 rounded-3xl shadow-2xl text-center fade-in">
+                    <h2 className="text-2xl font-bold mb-4 text-slate-500">旅の記録</h2>
+                    <div className="text-7xl font-bold mb-6 text-slate-700 drop-shadow-sm">{score} <span className="text-2xl text-slate-400">/ {total}</span></div>
+                    
+                    <div className={`text-3xl font-bold mb-6 ${badgeColor}`}>{title}</div>
+                    <p className="text-lg mb-10 leading-relaxed text-slate-600">{msg}</p>
+                    
+                    <button 
+                        onClick={onRetry}
+                        className="bg-white border-2 border-pink-300 text-pink-500 hover:bg-pink-50 hover:border-pink-400 font-bold py-3 px-8 rounded-full transition shadow-md hover:shadow-lg"
+                    >
+                        もう一度 旅に出る
+                    </button>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
