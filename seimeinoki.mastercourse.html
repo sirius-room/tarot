@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>暗記ゼロで、プロのタロットリーダーになる｜生命の樹タロット プロ養成マスターコース</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#1A3A6E;--blue:#2563B8;--mid:#4A8FD4;--light:#BFDBFE;--pale:#EFF6FF;
+  --sky:#E0F2FE;--white:#FFFFFF;--body:#1E293B;--sub:#475569;--line:#06C755;
+}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--white);color:var(--body);line-height:1.8}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,#EFF6FF 0%,#DBEAFE 60%,#E0F2FE 100%);padding:80px 24px 64px;text-align:center;border-bottom:2px solid var(--light);position:relative;overflow:hidden}
+.hero::before{content:'✦';position:absolute;top:20px;left:8%;font-size:80px;color:var(--light);opacity:.35;line-height:1}
+.hero::after{content:'✦';position:absolute;bottom:20px;right:8%;font-size:60px;color:var(--mid);opacity:.2;line-height:1}
+.hero-badge{display:inline-block;font-size:11px;letter-spacing:.2em;color:var(--blue);border:1px solid var(--light);background:var(--white);padding:5px 18px;margin-bottom:24px;border-radius:2px}
+.hero h1{font-family:'Noto Serif JP',serif;font-size:clamp(26px,5.5vw,46px);font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:14px}
+.hero-sub{font-size:14px;color:var(--blue);letter-spacing:.15em;margin-bottom:28px;font-weight:500}
+.hero-desc{font-size:15px;color:var(--sub);max-width:520px;margin:0 auto 12px;line-height:2}
+
+/* IMAGE */
+.img-block{width:100%;max-width:760px;margin:0 auto;overflow:hidden;border-radius:8px}
+.img-block img{width:100%;height:auto;display:block}
+.img-ph{width:100%;background:var(--pale);border:2px dashed var(--light);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--mid);font-size:13px;gap:8px;padding:48px 0}
+.img-ph-circle{width:120px;height:120px;min-width:120px;border-radius:50%;background:var(--pale);border:2px dashed var(--light);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--mid);font-size:11px;text-align:center;gap:4px;flex-shrink:0;overflow:hidden}
+.img-ph-circle img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* SECTION */
+.section{padding:56px 24px;max-width:760px;margin:0 auto}
+.section-label{font-size:11px;letter-spacing:.25em;color:var(--mid);margin-bottom:8px}
+.section h2{font-family:'Noto Serif JP',serif;font-size:clamp(20px,4vw,28px);color:var(--navy);margin-bottom:24px;font-weight:700}
+.divider{border:none;border-top:1px solid var(--light);margin:0 0 32px}
+.bg-pale{background:var(--pale);padding:56px 24px;border-top:1px solid var(--light);border-bottom:1px solid var(--light)}
+.bg-sky{background:var(--sky);padding:56px 24px;border-top:1px solid var(--light);border-bottom:1px solid var(--light)}
+.inner{max-width:760px;margin:0 auto}
+
+/* PAIN */
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.pain-card{background:var(--pale);border:1px solid var(--light);border-left:3px solid var(--mid);padding:14px 16px;border-radius:4px;font-size:14px;color:var(--body);line-height:1.7}
+
+/* FEATURE */
+.feature-box{background:var(--white);border:1px solid var(--light);border-radius:8px;padding:36px;margin:28px 0;text-align:center}
+.tag{display:inline-block;background:var(--navy);color:#fff;font-size:11px;padding:3px 12px;border-radius:2px;letter-spacing:.1em;margin-bottom:16px}
+.feature-box h3{font-family:'Noto Serif JP',serif;font-size:20px;color:var(--navy);margin-bottom:12px}
+.feature-box p{font-size:15px;color:var(--sub);max-width:480px;margin:0 auto;line-height:1.9}
+
+/* CURRICULUM */
+.curriculum-list{list-style:none}
+.curriculum-item{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--pale)}
+.curriculum-item:last-child{border-bottom:none}
+.c-num{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:700;color:var(--light);min-width:36px;line-height:1}
+.c-title{font-size:15px;font-weight:500;color:var(--navy);margin-bottom:4px}
+.c-detail{font-size:13px;color:var(--sub)}
+.c-badge{display:inline-block;font-size:11px;background:var(--sky);border:1px solid var(--light);color:var(--blue);padding:1px 8px;border-radius:2px;margin-left:8px}
+
+/* BENEFITS */
+.benefit-list{list-style:none}
+.benefit-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;font-size:15px;border-bottom:1px dotted var(--light)}
+.benefit-item:last-child{border-bottom:none}
+.bcheck{color:var(--blue);font-size:14px;margin-top:4px;min-width:14px}
+
+/* TOKUTEN */
+.tokuten-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+.tokuten-card{background:var(--white);border:1px solid var(--light);border-radius:8px;padding:20px}
+.t-icon{font-size:22px;color:var(--mid);margin-bottom:8px}
+.t-title{font-size:14px;font-weight:500;color:var(--navy);margin-bottom:6px}
+.t-desc{font-size:13px;color:var(--sub);line-height:1.7}
+
+/* MESSAGE */
+.message-box{border-left:3px solid var(--mid);padding:20px 24px;background:var(--white);border-radius:0 6px 6px 0}
+.message-box p{font-size:15px;color:var(--body);line-height:2;font-style:italic}
+
+/* CTA */
+.price-box{background:var(--pale);border:1px solid var(--light);border-radius:10px;padding:48px 32px;text-align:center;margin:32px 0}
+.price-note{font-size:12px;color:var(--blue);letter-spacing:.1em;margin-bottom:8px}
+.price-tag{font-size:11px;background:var(--navy);color:#fff;padding:4px 14px;border-radius:2px;display:inline-block;margin-bottom:20px;letter-spacing:.1em}
+.price-lead{font-family:'Noto Serif JP',serif;font-size:17px;color:var(--navy);margin-bottom:28px;line-height:1.9}
+.line-btn{display:inline-flex;align-items:center;gap:12px;background:var(--line);color:#fff;font-size:17px;font-weight:500;padding:18px 52px;border-radius:6px;text-decoration:none;letter-spacing:.08em}
+.line-icon{width:26px;height:26px;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.line-icon svg{width:20px;height:20px}
+
+/* FOOTER */
+.lp-footer{background:var(--navy);color:rgba(255,255,255,.65);text-align:center;padding:32px 24px;font-size:13px}
+.lp-footer strong{color:#fff;font-size:15px;display:block;margin-bottom:8px;font-family:'Noto Serif JP',serif}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">SIRIUS NO HEYA × TREE OF LIFE</div>
+  <div style="font-size:11px;letter-spacing:.2em;color:var(--mid);margin-bottom:20px">無料モニター 特別ご案内</div>
+  <h1>暗記ゼロで、<br>プロのタロットリーダーになる。</h1>
+  <p class="hero-sub">生命の樹タロット｜プロ養成マスターコース</p>
+  <p class="hero-desc">「構造で読む」タロットリーディングを完全習得して、<br>自信を持って鑑定できる占い師へ。</p>
+</div>
+
+<!-- PAIN -->
+<div class="section">
+  <div class="section-label">こんなお悩みありませんか？</div>
+  <h2>タロットに、迷いが残っていませんか</h2>
+  <hr class="divider">
+  <div class="pain-grid">
+    <div class="pain-card">キーワードは知っているのに、いざ読もうとすると詰まってしまう</div>
+    <div class="pain-card">暗記が苦手で、鑑定に自信が持てない</div>
+    <div class="pain-card">「この読み方で合ってる？」という不安がいつも残る</div>
+    <div class="pain-card">独学でここまで来たけど、このままでいいのか分からない</div>
+    <div class="pain-card">継続的にサポートしてくれる環境が欲しい</div>
+    <div class="pain-card">タロットを「趣味」から「仕事」にしたい</div>
+  </div>
+</div>
+
+<!-- FEATURE -->
+<div class="bg-pale">
+<div class="inner">
+  <div class="section-label">このコースの核心</div>
+  <h2 style="font-family:'Noto Serif JP',serif;font-size:clamp(20px,4vw,28px);color:var(--navy);margin-bottom:24px;font-weight:700">「なぜそのキーワードなのか」がわかると、<br>迷いが消える</h2>
+  <hr class="divider">
+  <div class="feature-box">
+    <div class="tag">最大の特徴</div>
+    <h3>魔法陣召喚セット<br>——カンニングしながら、プロレベルへ</h3>
+    <p>カードをクリックすると生命の樹の解説が即表示される特製ツール。鑑定中に画面共有すれば確認しながら鑑定できます。<br><br><strong style="color:var(--navy)">構造とエネルギーを理解して伝えること</strong>が本質——だからツールを見ながらでも、プロとして全く問題ないんです。</p>
+  </div>
+</div>
+</div>
+
+<!-- CURRICULUM -->
+<div class="section">
+  <div class="section-label">カリキュラム</div>
+  <h2>全6回の集中プログラム</h2>
+  <hr class="divider">
+  <ul class="curriculum-list">
+    <li class="curriculum-item"><div class="c-num">01</div><div><div class="c-title">基礎講座：セフィラ編 <span class="c-badge">2時間</span></div><div class="c-detail">生命の樹10個のセフィラを徹底解説。各セフィラのエネルギーと意味、構造で読むための基礎知識を習得します。</div></div></li>
+    <li class="curriculum-item"><div class="c-num">02</div><div><div class="c-title">基礎講座：大アルカナ編 <span class="c-badge">2時間</span></div><div class="c-detail">22枚の大アルカナと生命の樹の対応関係。構造とエネルギーで読む方法を実践的に学びます。</div></div></li>
+    <li class="curriculum-item"><div class="c-num">03</div><div><div class="c-title">基礎講座：小アルカナ編 <span class="c-badge">90分</span></div><div class="c-detail">小アルカナと生命の樹の対応関係。駅（セフィラ）と電車（アルカナ）の構造でスッキリ理解できます。</div></div></li>
+    <li class="curriculum-item"><div class="c-num">04</div><div><div class="c-title">個人指導 第1回 <span class="c-badge">90分</span></div><div class="c-detail">実践報告と課題のブラッシュアップ。あなたに合った方向でプロ活動のアドバイスをします。</div></div></li>
+    <li class="curriculum-item"><div class="c-num">05</div><div><div class="c-title">個人指導 第2回 <span class="c-badge">90分</span></div><div class="c-detail">実践報告と修正。プロとして活動するための具体的な戦略を一緒に考えます。</div></div></li>
+    <li class="curriculum-item"><div class="c-num">06</div><div><div class="c-title">個人指導 第3回 <span class="c-badge">90分</span></div><div class="c-detail">最終チェックと今後の活動相談。あなたの「プロデビュー」を全力でサポートします。</div></div></li>
+  </ul>
+  <p style="font-size:13px;color:var(--sub);margin-top:16px;text-align:center">※ 全講座アーカイブ付き（視聴期限なし）</p>
+</div>
+
+<!-- TOKUTEN -->
+<div class="bg-sky">
+<div class="inner">
+  <div class="section-label">特典</div>
+  <h2 style="font-family:'Noto Serif JP',serif;font-size:clamp(20px,4vw,28px);color:var(--navy);margin-bottom:24px;font-weight:700">充実のサポートと特典</h2>
+  <hr class="divider">
+  <div class="tokuten-grid">
+    <div class="tokuten-card"><div class="t-icon">✦</div><div class="t-title">魔法陣召喚セット PDF</div><div class="t-desc">クリック式カード解説ツール。鑑定時に画面共有してカンニングしながら使えます。</div></div>
+    <div class="tokuten-card"><div class="t-icon">✦</div><div class="t-title">生命の樹タロット グリモア</div><div class="t-desc">永久保存版の解説書。生命の樹×タロットの全知識を凝縮。これ一冊で全てが分かる。</div></div>
+    <div class="tokuten-card"><div class="t-icon">✦</div><div class="t-title">質問・添削サポート</div><div class="t-desc">講座期間中＋終了後も質問し放題。通常30分3,800円の添削も対応します。</div></div>
+    <div class="tokuten-card"><div class="t-icon">✦</div><div class="t-title">アーカイブ動画プレゼント</div><div class="t-desc">全6回を視聴期限なしで何度でも復習可能。プレゼントでお付けします。</div></div>
+  </div>
+</div>
+</div>
+
+<!-- BENEFITS -->
+<div class="section">
+  <div class="section-label">受講後のあなた</div>
+  <h2>このコースで手に入れるもの</h2>
+  <hr class="divider">
+  <ul class="benefit-list">
+    <li class="benefit-item"><span class="bcheck">◆</span><span>生命の樹の構造を完全マスター——もう「なぜ？」で迷わない</span></li>
+    <li class="benefit-item"><span class="bcheck">◆</span><span>暗記なしでプロレベルの鑑定ができるようになる</span></li>
+    <li class="benefit-item"><span class="bcheck">◆</span><span>魔法陣ツールで自信を持って鑑定できる</span></li>
+    <li class="benefit-item"><span class="bcheck">◆</span><span>グリモアでいつでも知識を確認できる安心感</span></li>
+    <li class="benefit-item"><span class="bcheck">◆</span><span>お客様が「すごい！」と満足してくれる鑑定力</span></li>
+    <li class="benefit-item"><span class="bcheck">◆</span><span>タロット占い師としてプロデビューできる</span></li>
+    <li class="benefit-item"><span class="bcheck">◆</span><span>継続的に学び続けられる仲間とのつながり</span></li>
+  </ul>
+</div>
+
+<!-- MESSAGE -->
+<div class="bg-pale">
+<div class="inner">
+  <div class="section-label">講師より</div>
+  <h2 style="font-family:'Noto Serif JP',serif;font-size:clamp(20px,4vw,26px);color:var(--navy);margin-bottom:24px;font-weight:700">メッセージ</h2>
+  <hr class="divider">
+  <div style="margin-bottom:24px">
+<div>
+      <div class="message-box">
+        <p>「暗記が苦手だから」「自信がないから」——その不安は、このコースで解消できます。なぜなら、暗記不要の魔法陣ツールと、いつでも確認できるグリモアがあるから。<br><br>カンニングしながらでも、プロレベルの鑑定はできます。大切なのは、お客様を満足させること。タロットを「趣味」から「仕事」にしたい、そんなあなたの夢を全力でサポートします。</p>
+      </div>
+    </div>
+  </div>
+  <p style="text-align:right;font-size:14px;color:var(--blue);font-family:'Noto Serif JP',serif">シリウスの部屋　鈴木麻由美</p>
+</div>
+</div>
+
+<!-- CTA -->
+<div class="section">
+  <div class="price-box">
+    <div class="price-note">現在、モニター特別価格にてご案内中</div>
+    <div class="price-tag">今が最もお得なタイミングです</div>
+    <div class="price-lead">今後、料金は上がっていく予定です。<br>今この瞬間が、最安値でのご受講チャンス。</div>
+    <a class="line-btn" href="https://m08vct9h.autosns.app/fm/LleHTur09g?uid=[[uid]]">
+      <div class="line-icon"><svg viewBox="0 0 24 24" fill="#06C755"><path d="M12 2C6.48 2 2 5.93 2 10.74c0 3.1 1.72 5.83 4.36 7.47-.19.7-.69 2.55-.79 2.95-.13.5.18.5.38.36.16-.11 2.1-1.43 2.95-2.01.68.1 1.38.15 2.1.15 5.52 0 10-3.93 10-8.76C22 5.93 17.52 2 12 2z"/></svg></div>
+      公式LINEで申し込む・詳細を聞く
+    </a>
+    <p style="font-size:12px;color:var(--sub);margin-top:16px">LINEを友達追加して「マスターコース」とメッセージを送ってください</p>
+  </div>
+</div>
+
+<div class="lp-footer">
+  <strong>シリウスの部屋</strong>
+  鈴木麻由美 ／ 生命の樹タロット講師
+</div>
+
+</body>
+</html>
